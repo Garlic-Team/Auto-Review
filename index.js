@@ -7,12 +7,15 @@ try {
     const event = core.getInput('EVENT_TYPE', {required: true});
     const message = core.getInput('MESSAGE');
 
+    const pullRequest = github.context.payload.pull_request
+    const prNumber = pullRequest.number
+
     if (!pullRequest) {
         core.setFailed('🐢 This action isn\'t pull requests. Please run this action on: pull_request');
         process.exit(1);
     }
 
-    if (!['COMMENT','REQUEST_CHANGES'].includes(eventType) && !message) {
+    if (!['COMMENT','REQUEST_CHANGES'].includes(event) && !message) {
         core.setFailed('🐢 EVENT_TYPE is a COMMENT or REQUEST_CHANGES required a MESSAGE.');
         process.exit(1);
     }
