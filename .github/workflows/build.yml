@@ -14,12 +14,3 @@ jobs:
 
     - name: Download & Build
       run: npm run build
-
-    - name: Dist
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.ACCESS_TOKEN }}
-        publish_dir: ./dist
-        publish_branch: main
-        destination_dir: ./dist
-        keep_files: true

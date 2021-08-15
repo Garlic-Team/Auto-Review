@@ -8,5 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "npm i @vercel/ncc && ncc build index.js --minify --license LICENSE"
+  },
+  "dependencies": {
+    "@vercel/ncc": "^0.29.1"
   }
 }
