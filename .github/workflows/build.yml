@@ -22,3 +22,4 @@ jobs:
         publish_dir: ./dist
         publish_branch: main
         destination_dir: ./dist
+        keep_files: true
