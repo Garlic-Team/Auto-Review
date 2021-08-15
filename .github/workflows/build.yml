@@ -14,3 +14,9 @@ jobs:
 
     - name: Download & Build
       run: npm run build
+
+    - name: Dist
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist/index.js
+        path: dist/index.js 
