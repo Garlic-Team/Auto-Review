@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Review
-        uses: Garlic-Team/Auto-Review@1.0.0
+        uses: Garlic-Team/Auto-Review@1.0.5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_TYPE: APPROVE
@@ -58,7 +58,7 @@ jobs:
 
       - name: Success
         if: ${{ steps.eslint.outcome == 'success' }}
-        uses: Garlic-Team/Auto-Review@1.0.0
+        uses: Garlic-Team/Auto-Review@1.0.5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_TYPE: APPROVE
@@ -66,7 +66,7 @@ jobs:
 
       - name: Failure
         if: ${{ steps.eslint.outcome != 'success' }}
-        uses: Garlic-Team/Auto-Review@1.0.0
+        uses: Garlic-Team/Auto-Review@1.0.5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_TYPE: REQUEST_CHANGES
