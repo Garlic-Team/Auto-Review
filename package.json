@@ -7,6 +7,6 @@
   "author": "Garlic-Team",
   "license": "MIT",
   "scripts": {
-    "build": "npm i ncc && ncc build index.js --minify --license LICENSE"
+    "build": "npm i @vercel/ncc && ncc build index.js --minify --license LICENSE"
   }
 }
