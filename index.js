@@ -24,8 +24,8 @@ try {
         event,
     });
 } catch(e) {
-    core.error(err);
-    core.setFailed(err.message);
+    core.error(e);
+    core.setFailed(e.message);
 }
 
 function pullRequestReview({token, prNumber, message, event}) {
