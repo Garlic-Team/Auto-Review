@@ -31,9 +31,7 @@ try {
     core.setFailed(e.message);
 }
 
-function pullRequestReview({token, prNumber, message, event}) {    
-    console.log(github.context, prNumber)
-    
+function pullRequestReview({token, prNumber, message, event}) {        
     fetch(`https://api.github.com/repos/${github.context.repo.owner}/${github.context.repo.repo}/pulls/${prNumber}/reviews`, {
         method: 'post',
         body: JSON.stringify({
