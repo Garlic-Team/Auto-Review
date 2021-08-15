@@ -10,7 +10,7 @@ With this action, you can make a simple auto review system.
 
 | Key            | Value                                                               | Suggested Type | Required | Default                                      |
 | -------------- | ------------------------------------------------------------------- | -------------- | -------- | -------------------------------------------- |
-| `GITHUB_TOKEN` | Personal github token. **recommend use GITHUN_TOKEN**               | `secret env`   | **Yes**  | N/A                                          |
+| `GITHUB_TOKEN` | Personal github token. **recommend use GITHUB_TOKEN**               | `secret env`   | **Yes**  | N/A                                          |
 | `EVENT_TYPE`   | Type of event will have `APPROVE`, `COMMENT` and `REQUEST_CHANGES`. | `env`          | No       | `APPROVE`                                    |
 | `MESSAGE`      | Can add comment at event select.                                    | `env`          | No       | `Success approve. Enjoy 🏳️‍🌈🎉.`               |
 
