@@ -1,5 +1,7 @@
 name: 'Auto Review'
 description: 'Automatically review PRs'
+icon: check-circle
+color: yellow
 inputs:
   GITHUB_TOKEN:
     description: 'Personal github token'
