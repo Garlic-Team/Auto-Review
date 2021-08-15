@@ -1,0 +1,19 @@
+name: "Release"
+
+on: [workflow_dispatch]
+
+jobs:
+  release:
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Draft Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: $(jq --raw-output '.version' package.json)
+          release_name: v$(jq --raw-output '.version' package.json)
+          draft: true
+          prerelease: false

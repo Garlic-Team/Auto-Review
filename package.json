@@ -1,0 +1,12 @@
+{
+  "name": "auto-review",
+  "version": "1.0.0",
+  "description": "With this action, you can make a simple auto review system.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/Garlic-Team/Auto-Review.git",
+  "author": "Garlic-Team",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm i ncc && ncc build index.js --minify --license LICENSE"
+  }
+}
