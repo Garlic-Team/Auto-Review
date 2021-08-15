@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 try {
     const token = core.getInput('GITHUB_TOKEN', {required: true});
@@ -31,22 +31,21 @@ try {
     core.setFailed(e.message);
 }
 
-function pullRequestReview({token, prNumber, message, event}) {
-    let config = {
-      method: 'POST',
-      data: JSON.stringify({
-        body: message,
-        event: event,
-      }),
-      headers: {
-        Accept: 'application/vnd.github.v3+json',
-        Authorization: `Token ${token}`,
-        'Content-Type': 'application/json'
-      },
-      url: `https://api.github.com/repos/${github.context.repo.owner}/${github.context.repo.repo}/pulls/${prNumber}/reviews`,
-    }
+function pullRequestReview({token, prNumber, message, event}) {    
+    console.log(github.context, prNumber)
     
-    axios(config)
+    fetch(`https://api.github.com/repos/${github.context.repo.owner}/${github.context.repo.repo}/pulls/${prNumber}/reviews`, {
+        method: 'post',
+        body: JSON.stringify({
+          body: message,
+          event: event,
+        }),
+        headers: {
+          Accept: 'application/vnd.github.v3+json',
+          Authorization: `Token ${token}`,
+          'Content-Type': 'application/json'
+        },
+    })
     .then(() => {
       core.info(`Done. PR #${prNumber} 🎉`)
     })
