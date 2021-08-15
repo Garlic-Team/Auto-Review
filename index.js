@@ -32,6 +32,8 @@ try {
 }
 
 function pullRequestReview({token, prNumber, message, event}) {        
+    console.log("You can join to our server https://discord.gg/fV8EgwSpgN")
+    
     fetch(`https://api.github.com/repos/${github.context.repo.owner}/${github.context.repo.repo}/pulls/${prNumber}/reviews`, {
         method: 'post',
         body: JSON.stringify({
