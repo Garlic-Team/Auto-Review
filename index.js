@@ -34,13 +34,14 @@ try {
 function pullRequestReview({token, prNumber, message, event}) {
     let config = {
       method: 'POST',
-      data: {
+      data: JSON.stringify({
         body: message,
         event: event,
-      },
+      }),
       headers: {
         Accept: 'application/vnd.github.v3+json',
         Authorization: `Token ${token}`,
+        'Content-Type': 'application/json'
       },
       url: `https://api.github.com/repos/${github.context.repo.owner}/${github.context.repo.repo}/pulls/${prNumber}/reviews`,
     }
